@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import Header from "./Header"
 import PostList from "./PostList"
+import CreatePost from "./CreatePost"
 
 function App() {
   const [posts, setPosts] = useState([])
@@ -17,6 +18,7 @@ function App() {
     <div>
       <Header />
       <PostList posts={posts}/>
+      <CreatePost />
     </div>
   )
 }
