@@ -5,10 +5,25 @@ function CreatePost({ onCreate }) {
   const [author, setAuthor] = useState("")
   const [body, setBody] = useState("")
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    if (title && author && body) {
+      onCreate({
+        title: title,
+        author: author,
+        date: Date.now(),
+        body: body,
+      })
+      setTitle("")
+      setAuthor("")
+      setBody("")
+    }
+  }
+
   return ( 
     <div className="max-w-2xl mx-auto px-1">
       <h2 className="text-center">Create a new post</h2>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label className="block">Title:</label>
         <input className="block w-full bg-green-100"
           type="text"
@@ -30,12 +45,7 @@ function CreatePost({ onCreate }) {
           onChange={(e) => setBody(e.target.value)}
         ></textarea>
         <button className="bg-green-800 text-white"
-          onClick={() => onCreate({
-            title: title,
-            author: author,
-            date: Date.now(),
-            body: body,
-          })}
+          type="submit"
         >Post to Blog</button>
       </form>
     </div>
