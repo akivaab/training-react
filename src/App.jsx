@@ -14,11 +14,15 @@ function App() {
     localStorage.setItem('posts', JSON.stringify(posts))
   }, [posts])
 
+  const createPost = newPost => setPosts(prevPosts => [...prevPosts, newPost])
+  const deletePost = deletedPost => setPosts(prevPosts => prevPosts.filter(post => post.date !== deletedPost.date))
+
   return (
     <div>
       <Header />
-      <PostList posts={posts}/>
-      <CreatePost />
+      <PostList posts={posts} onDelete={deletePost}/>
+      <hr />
+      <CreatePost onCreate={createPost}/>
     </div>
   )
 }
