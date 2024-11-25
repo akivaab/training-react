@@ -1,8 +1,8 @@
 function PostList({ posts, onDelete }) {
   return ( 
-    <div className="container mx-auto items-center flex">
+    <div className="container mx-auto items-center">
       {posts.map((post) => (
-        <div key={post.date}>
+        <div className="flex" key={post.date}>
           <h2>{post.title}</h2>
           <button onClick={() => onDelete(post)}>Delete</button>
         </div>
