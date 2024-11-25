@@ -20,8 +20,8 @@ function App() {
       <div>
         <Header />
         <Routes>
-          <Route path="/" exact element={<PostList posts={posts} onDelete={deletePost} />} />
-          <Route path="post/:id" element={<PostDetails posts={posts} />} />
+          <Route path="/" exact element={<PostList posts={posts} />} />
+          <Route path="post/:id" element={<PostDetails posts={posts} onDelete={deletePost} />} />
           <Route path="create" element={<CreatePost onCreate={createPost}/>} />
         </Routes>
       </div>
