@@ -3,6 +3,7 @@ import Header from "./Header"
 import PostList from "./PostList"
 import CreatePost from "./CreatePost"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
+import PostDetails from "./PostDetails"
 
 function App() {
   const [posts, setPosts] = useState(JSON.parse(localStorage.getItem('posts')) || [])
@@ -19,8 +20,9 @@ function App() {
       <div>
         <Header />
         <Routes>
-          <Route path="/" exact element={<PostList posts={posts} onDelete={deletePost}/>} />
-          <Route path="/create" element={<CreatePost onCreate={createPost}/>} />
+          <Route path="/" exact element={<PostList posts={posts} onDelete={deletePost} />} />
+          <Route path="post/:id" element={<PostDetails posts={posts} />} />
+          <Route path="create" element={<CreatePost onCreate={createPost}/>} />
         </Routes>
       </div>
     </BrowserRouter>
