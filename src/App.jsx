@@ -14,6 +14,7 @@ function App() {
 
   const createPost = newPost => setPosts(prevPosts => [...prevPosts, newPost])
   const deletePost = deletedPost => setPosts(prevPosts => prevPosts.filter(post => post.date !== deletedPost.date))
+  const updatePost = updatedPost => setPosts(prevPosts => prevPosts.map(post => post.date === updatedPost.date ? updatedPost : post))
 
   return (
     <BrowserRouter>
@@ -21,7 +22,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" exact element={<PostList posts={posts} />} />
-          <Route path="post/:id" element={<PostDetails posts={posts} onDelete={deletePost} />} />
+          <Route path="post/:id" element={<PostDetails posts={posts} onDelete={deletePost} onUpdate={updatePost}/>} />
           <Route path="create" element={<CreatePost onCreate={createPost}/>} />
         </Routes>
       </div>
