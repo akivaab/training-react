@@ -12,11 +12,18 @@ function PostDetails({ posts, onDelete, onUpdate }) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    post.title = title
-    post.author = author
-    post.body = body
-    onUpdate(post)
-    setIsUpdating(false)
+    if (title && author && body) {
+      post.title = title
+      post.author = author
+      post.body = body
+      onUpdate(post)
+      setIsUpdating(false)
+    }
+  }
+
+  const handleDelete = () => {
+    onDelete(post)
+    navigate("/", {replace: true})
   }
 
   return (
@@ -55,11 +62,7 @@ function PostDetails({ posts, onDelete, onUpdate }) {
           <h3>Written by {author}</h3>
           <h3>Posted {post.date}</h3>
           <p>{body}</p>
-          <button onClick={() => {
-            onDelete(post)
-            navigate("/", {replace: true})
-          }}>Delete</button>
-          {/* Change back to PostList page after deletion */}
+          <button onClick={handleDelete}>Delete</button>
           <button onClick={() => setIsUpdating(true)}>Edit</button>
         </div>
       )}
