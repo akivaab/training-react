@@ -1,10 +1,20 @@
 import { useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 function PostDetails({ posts, onDelete, onUpdate }) {
   const navigate = useNavigate()
   const { id } = useParams()
   const post = posts.find(p => p.date === Number(id))
+
+  if (!post) {
+    return ( 
+      <div>
+        <h1>Sorry, looks like the blog post you are looking for was deleted!</h1>
+        <Link to="/">Check out other posts!</Link>
+      </div>
+    )
+  }
+
   const [isUpdating, setIsUpdating] = useState(false)
   const [title, setTitle] = useState(post.title)
   const [author, setAuthor] = useState(post.author)

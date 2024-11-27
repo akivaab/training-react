@@ -4,6 +4,7 @@ import PostList from "./PostList"
 import CreatePost from "./CreatePost"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import PostDetails from "./PostDetails"
+import Error from "./Error"
 
 function App() {
   const [posts, setPosts] = useState(JSON.parse(localStorage.getItem('posts')) || [])
@@ -24,6 +25,7 @@ function App() {
           <Route path="/" exact element={<PostList posts={posts} />} />
           <Route path="post/:id" element={<PostDetails posts={posts} onDelete={deletePost} onUpdate={updatePost}/>} />
           <Route path="create" element={<CreatePost onCreate={createPost}/>} />
+          <Route path="*" element={<Error />} />
         </Routes>
       </div>
     </BrowserRouter>
