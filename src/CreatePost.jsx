@@ -14,7 +14,7 @@ function CreatePost({ onCreate }) {
         title: title,
         author: author,
         date: Date.now(),
-        body: body,
+        body: body
       });
       setTitle("");
       setAuthor("");
@@ -24,33 +24,38 @@ function CreatePost({ onCreate }) {
   };
 
   return (
-    <div className="max-w-2xl mx-auto px-1">
-      <h2 className="text-center">Create a new post</h2>
+    <div className="mx-auto max-w-3xl p-4">
+      <h2 className="p-3 text-center text-2xl font-semibold text-green-800 underline">
+        Create a new post:
+      </h2>
       <form onSubmit={handleSubmit}>
-        <label className="block">Title:</label>
+        <label className="block px-1 pt-1">Title:</label>
         <input
-          className="block w-full bg-green-100"
+          className="mb-2 block w-full rounded-sm border border-slate-400 bg-green-50 p-1"
           type="text"
           required
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
-        <label className="block">Author:</label>
+        <label className="block px-1 pt-1">Author:</label>
         <input
-          className="block w-full bg-green-100"
+          className="mb-2 block w-full rounded-sm border border-slate-400 bg-green-50 p-1"
           type="text"
           required
           value={author}
           onChange={(e) => setAuthor(e.target.value)}
         />
-        <label className="block">Blog Post:</label>
+        <label className="block px-1 pt-1">Blog Post:</label>
         <textarea
-          className="block w-full bg-green-100"
+          className="mb-2 block h-40 w-full rounded-sm border border-slate-400 bg-green-50 p-1"
           required
           value={body}
           onChange={(e) => setBody(e.target.value)}
         ></textarea>
-        <button className="bg-green-800 text-white" type="submit">
+        <button
+          className="mx-auto mt-4 block rounded-2xl bg-green-800 p-3 text-white shadow transition-shadow hover:shadow-lg"
+          type="submit"
+        >
           Post to Blog
         </button>
       </form>
