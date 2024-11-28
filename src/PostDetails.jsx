@@ -1,3 +1,4 @@
+import { format } from "date-fns";
 import { useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
@@ -85,7 +86,7 @@ function PostDetails({ posts, onDelete, onUpdate }) {
                 Written by {author}
               </h3>
               <h3 className="text-lg font-normal text-slate-700">
-                Posted {post.date}
+                Posted {format(post.date, "MMM dd, yyyy, HH:mm")}
               </h3>
             </div>
             <div className="my-auto space-x-3">

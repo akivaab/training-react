@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { format } from "date-fns";
 
 function PostList({ posts }) {
   return (
@@ -14,7 +15,7 @@ function PostList({ posts }) {
                 {post.title}
               </h2>
               <h3 className="text-base font-normal text-slate-700">
-                {post.author} &#9679; {post.date}
+                {post.author} &#9679; {format(post.date, "MMM dd, yyyy")}
               </h3>
             </Link>
           </div>
