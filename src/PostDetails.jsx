@@ -1,6 +1,7 @@
 import { format } from "date-fns";
 import { useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import Error from "./Error";
 
 function PostDetails({ posts, onDelete, onUpdate }) {
   const navigate = useNavigate();
@@ -8,14 +9,7 @@ function PostDetails({ posts, onDelete, onUpdate }) {
   const post = posts.find((p) => p.date === Number(id));
 
   if (!post) {
-    return (
-      <div>
-        <h1>
-          Sorry, looks like the blog post you are looking for was deleted!
-        </h1>
-        <Link to="/">Check out other posts!</Link>
-      </div>
-    );
+    return <Error />;
   }
 
   const [isUpdating, setIsUpdating] = useState(false);
@@ -34,6 +28,14 @@ function PostDetails({ posts, onDelete, onUpdate }) {
     }
   };
 
+  const handleReset = (e) => {
+    e.preventDefault();
+    setTitle(post.title);
+    setAuthor(post.author);
+    setBody(post.body);
+    setIsUpdating(false);
+  };
+
   const handleDelete = () => {
     onDelete(post);
     navigate("/", { replace: true });
@@ -43,7 +45,7 @@ function PostDetails({ posts, onDelete, onUpdate }) {
     <div className="mx-auto max-w-3xl p-4 text-left">
       {isUpdating ? (
         <div>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} onReset={handleReset}>
             <input
               className="mb-4 block w-full rounded-sm border border-slate-400 bg-green-50 p-1 text-2xl font-medium"
               type="text"
@@ -67,12 +69,20 @@ function PostDetails({ posts, onDelete, onUpdate }) {
               placeholder="Blog Post"
               onChange={(e) => setBody(e.target.value)}
             ></textarea>
-            <button
-              className="mx-auto mt-4 block rounded-2xl bg-green-800 p-3 text-white shadow transition-shadow hover:shadow-lg"
-              type="submit"
-            >
-              Save Changes
-            </button>
+            <div className="mx-auto mt-4 flex justify-center space-x-20">
+              <button
+                className="w-32 rounded-2xl bg-green-800 p-3 text-white shadow transition-shadow hover:shadow-lg"
+                type="reset"
+              >
+                &#8592; Go Back
+              </button>
+              <button
+                className="w-32 rounded-2xl bg-green-800 p-3 text-white shadow transition-shadow hover:shadow-lg"
+                type="submit"
+              >
+                Save Changes
+              </button>
+            </div>
           </form>
         </div>
       ) : (
