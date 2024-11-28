@@ -2,6 +2,7 @@ import { format } from "date-fns";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Error from "./Error";
+import Comments from "./Comments";
 
 function PostDetails({ posts, onDelete, onUpdate }) {
   const navigate = useNavigate();
@@ -115,6 +116,8 @@ function PostDetails({ posts, onDelete, onUpdate }) {
             </div>
           </div>
           <p className="whitespace-pre-line text-slate-950">{body}</p>
+          <hr className="mx-auto my-8 w-3/4" />
+          <Comments post={post} onUpdate={onUpdate} />
         </>
       )}
     </div>
