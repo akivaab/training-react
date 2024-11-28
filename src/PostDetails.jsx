@@ -104,7 +104,7 @@ function PostDetails({ posts, onDelete, onUpdate }) {
               </button>
             </div>
           </div>
-          <p className="text-slate-950">{body}</p>
+          <p className="whitespace-pre-line text-slate-950">{body}</p>
         </>
       )}
     </div>
