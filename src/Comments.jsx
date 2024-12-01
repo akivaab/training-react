@@ -37,6 +37,7 @@ function Comments({ post, onUpdate }) {
             className="m-1 w-full rounded-sm border p-2"
             type="text"
             required
+            maxLength="50"
             placeholder="Your Name"
             value={commentAuthor}
             onChange={(e) => setCommentAuthor(e.target.value)}
@@ -63,9 +64,9 @@ function Comments({ post, onUpdate }) {
             className="my-1 rounded border-2 p-4 shadow transition-shadow hover:shadow-md"
           >
             <h3 className="flex items-start text-sm font-light text-slate-700">
-              <span className="mr-px max-w-[70%] truncate">
+              <span className="mr-[3px] max-w-[70%] truncate">
                 {comment.author}
-              </span>{" "}
+              </span>
               wrote at {format(comment.date, "MMM dd, yyyy")}:
             </h3>
             <p className="whitespace-pre-line break-words text-base font-normal text-slate-900">
