@@ -69,7 +69,7 @@ function Comments({ post, onUpdate }) {
               </span>
               wrote at {format(comment.date, "MMM dd, yyyy")}:
             </h3>
-            <p className="whitespace-pre-line break-words text-base font-normal text-slate-900">
+            <p className="font-verdana whitespace-pre-line break-words text-base font-light text-slate-900">
               {comment.body}
             </p>
           </div>

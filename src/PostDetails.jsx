@@ -92,7 +92,7 @@ function PostDetails({ posts, onDelete, onUpdate }) {
         <>
           <div className="mx-2 flex items-start justify-between">
             <div className="mb-3 min-w-[35%] flex-1 p-1">
-              <h2 className="truncate pb-1 text-2xl font-medium text-green-700 md:whitespace-normal md:break-words">
+              <h2 className="font-tahoma truncate pb-1 text-2xl font-medium text-green-700 md:whitespace-normal md:break-words">
                 {title}
               </h2>
               <h3 className="truncate text-lg font-normal text-slate-700 md:whitespace-normal md:break-words">
@@ -117,7 +117,9 @@ function PostDetails({ posts, onDelete, onUpdate }) {
               </button>
             </div>
           </div>
-          <p className="whitespace-pre-line text-slate-950">{body}</p>
+          <p className="font-verdana whitespace-pre-line text-slate-950">
+            {body}
+          </p>
           <hr className="mx-auto my-8 w-3/4" />
           <Comments post={post} onUpdate={onUpdate} />
         </>
