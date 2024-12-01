@@ -5,6 +5,7 @@ import CreatePost from "./CreatePost";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import PostDetails from "./PostDetails";
 import Error from "./Error";
+import Footer from "./Footer";
 
 function App() {
   const [posts, setPosts] = useState(
@@ -30,23 +31,29 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div>
+      <div className="flex min-h-screen flex-col">
         <Header />
-        <Routes>
-          <Route path="/" exact element={<PostList posts={posts} />} />
-          <Route
-            path="post/:id"
-            element={
-              <PostDetails
-                posts={posts}
-                onDelete={deletePost}
-                onUpdate={updatePost}
-              />
-            }
-          />
-          <Route path="create" element={<CreatePost onCreate={createPost} />} />
-          <Route path="*" element={<Error />} />
-        </Routes>
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" exact element={<PostList posts={posts} />} />
+            <Route
+              path="post/:id"
+              element={
+                <PostDetails
+                  posts={posts}
+                  onDelete={deletePost}
+                  onUpdate={updatePost}
+                />
+              }
+            />
+            <Route
+              path="create"
+              element={<CreatePost onCreate={createPost} />}
+            />
+            <Route path="*" element={<Error />} />
+          </Routes>
+        </main>
+        <Footer />
       </div>
     </BrowserRouter>
   );
