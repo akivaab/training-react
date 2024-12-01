@@ -35,6 +35,7 @@ function CreatePost({ onCreate }) {
           className="mb-2 block w-full rounded-sm border border-slate-400 bg-green-50 p-1"
           type="text"
           required
+          maxLength="150"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
@@ -43,6 +44,7 @@ function CreatePost({ onCreate }) {
           className="mb-2 block w-full rounded-sm border border-slate-400 bg-green-50 p-1"
           type="text"
           required
+          maxLength="50"
           value={author}
           onChange={(e) => setAuthor(e.target.value)}
         />

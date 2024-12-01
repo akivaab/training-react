@@ -11,10 +11,10 @@ function PostList({ posts }) {
             className="mb-3 rounded-md border-2 p-4 shadow transition-shadow hover:shadow-md"
           >
             <Link to={`post/${post.date}`}>
-              <h2 className="text-xl font-medium text-green-700">
+              <h2 className="truncate text-xl font-medium text-green-700 sm:whitespace-normal sm:break-words">
                 {post.title}
               </h2>
-              <h3 className="text-base font-normal text-slate-700">
+              <h3 className="truncate text-base font-normal text-slate-700 sm:whitespace-normal sm:break-words">
                 {post.author} &#9679; {format(post.date, "MMM dd, yyyy")}
               </h3>
             </Link>

@@ -62,10 +62,13 @@ function Comments({ post, onUpdate }) {
             key={comment.date}
             className="my-1 rounded border-2 p-4 shadow transition-shadow hover:shadow-md"
           >
-            <h3 className="text-sm font-light text-slate-700">
-              {comment.author} wrote at {format(comment.date, "MMM dd, yyyy")}:
+            <h3 className="flex items-start text-sm font-light text-slate-700">
+              <span className="mr-px max-w-[70%] truncate">
+                {comment.author}
+              </span>{" "}
+              wrote at {format(comment.date, "MMM dd, yyyy")}:
             </h3>
-            <p className="text-base font-normal text-slate-900">
+            <p className="whitespace-pre-line break-words text-base font-normal text-slate-900">
               {comment.body}
             </p>
           </div>
