@@ -8,7 +8,7 @@ function Error() {
         Sorry, but we could not find the page you are looking for.
       </h2>
       <Link to="/">
-        <button className="mt-4 rounded-2xl bg-green-800 p-3 text-white shadow transition-shadow hover:shadow-lg">
+        <button className="mt-4 rounded-2xl bg-green-800 p-3 text-white shadow transition-all duration-100 hover:ring-2 hover:ring-emerald-600 active:bg-green-700">
           Back to Home
         </button>
       </Link>

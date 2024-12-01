@@ -56,7 +56,7 @@ function CreatePost({ onCreate }) {
           onChange={(e) => setBody(e.target.value)}
         ></textarea>
         <button
-          className="mx-auto mt-4 block rounded-2xl bg-green-800 p-3 text-white shadow transition-shadow hover:shadow-lg"
+          className="mx-auto mt-4 block rounded-2xl bg-green-800 p-3 text-white shadow transition-all duration-100 hover:ring-2 hover:ring-emerald-600 active:bg-green-700"
           type="submit"
         >
           Post to Blog

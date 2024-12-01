@@ -74,13 +74,13 @@ function PostDetails({ posts, onDelete, onUpdate }) {
             ></textarea>
             <div className="mx-auto mt-4 flex justify-center space-x-20">
               <button
-                className="w-32 rounded-2xl bg-green-800 p-3 text-white shadow transition-shadow hover:shadow-lg"
+                className="w-32 rounded-2xl bg-green-800 p-3 text-white shadow transition-all duration-100 hover:ring hover:ring-emerald-600 active:bg-green-700"
                 type="reset"
               >
                 &#8592; Go Back
               </button>
               <button
-                className="w-32 rounded-2xl bg-green-800 p-3 text-white shadow transition-shadow hover:shadow-lg"
+                className="w-32 rounded-2xl bg-green-800 p-3 text-white shadow transition-all duration-100 hover:ring hover:ring-emerald-600 active:bg-green-700"
                 type="submit"
               >
                 Save Changes
@@ -104,13 +104,13 @@ function PostDetails({ posts, onDelete, onUpdate }) {
             </div>
             <div className="my-auto ml-1 space-x-3">
               <button
-                className="w-24 rounded-2xl bg-green-800 p-3 text-white shadow transition-shadow hover:shadow-lg"
+                className="w-24 rounded-2xl bg-green-800 p-3 text-white shadow transition-all duration-100 hover:ring-2 hover:ring-emerald-600 active:bg-green-700"
                 onClick={() => setIsUpdating(true)}
               >
                 Edit
               </button>
               <button
-                className="w-24 rounded-2xl bg-red-800 p-3 text-white shadow transition-shadow hover:shadow-lg"
+                className="w-24 rounded-2xl bg-red-800 p-3 text-white shadow transition-all duration-100 hover:ring-2 hover:ring-red-900 active:bg-red-700"
                 onClick={handleDelete}
               >
                 Delete

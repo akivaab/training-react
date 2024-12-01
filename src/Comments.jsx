@@ -22,7 +22,7 @@ function Comments({ post, onUpdate }) {
   return (
     <section className="mr-auto max-w-xl">
       <button
-        className="mb-2 w-56 rounded-2xl bg-green-800 p-3 text-white shadow transition-shadow hover:shadow-lg"
+        className="mb-2 w-56 rounded bg-green-800 p-3 text-white shadow transition-all duration-100 hover:bg-green-700"
         onClick={() => setIsCommenting(!isCommenting)}
       >
         {`Click Here to ${isCommenting ? "Cancel" : "Comment!"}`}
@@ -49,7 +49,7 @@ function Comments({ post, onUpdate }) {
             onChange={(e) => setCommentBody(e.target.value)}
           ></textarea>
           <button
-            className="mx-1 rounded bg-green-800 p-2 text-white shadow transition-shadow hover:shadow-lg"
+            className="mx-1 rounded bg-green-800 p-2 text-white shadow transition-all duration-100 hover:bg-green-700"
             type="submit"
           >
             Submit
