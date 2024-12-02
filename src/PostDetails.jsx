@@ -9,14 +9,14 @@ function PostDetails({ posts, onDelete, onUpdate }) {
   const { id } = useParams();
   const post = posts.find((p) => p.date.toString() === id);
 
+  const [isUpdating, setIsUpdating] = useState(false);
+  const [title, setTitle] = useState(post?.title || "");
+  const [author, setAuthor] = useState(post?.author || "");
+  const [body, setBody] = useState(post?.body || "");
+
   if (!post) {
     return <Error />;
   }
-
-  const [isUpdating, setIsUpdating] = useState(false);
-  const [title, setTitle] = useState(post.title);
-  const [author, setAuthor] = useState(post.author);
-  const [body, setBody] = useState(post.body);
 
   const handleSubmit = (e) => {
     e.preventDefault();
