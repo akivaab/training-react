@@ -10,8 +10,8 @@ function PostList({ posts }) {
             key={post.date}
             className="mb-3 rounded-md border-2 p-4 shadow transition-shadow hover:shadow-md"
           >
-            <Link to={`post/${post.date}`}>
-              <h2 className="font-tahoma truncate text-xl font-medium text-green-700 sm:whitespace-normal sm:break-words">
+            <Link to={`${post.date}`}>
+              <h2 className="truncate font-tahoma text-xl font-medium text-green-700 sm:whitespace-normal sm:break-words">
                 {post.title}
               </h2>
               <h3 className="truncate text-base font-normal text-slate-700 sm:whitespace-normal sm:break-words">

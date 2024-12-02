@@ -37,7 +37,7 @@ function App() {
           <Routes>
             <Route path="/" exact element={<PostList posts={posts} />} />
             <Route
-              path="post/:id"
+              path=":id"
               element={
                 <PostDetails
                   posts={posts}

@@ -13,7 +13,7 @@ function Header() {
             Home
           </Link>
           <Link
-            to="/create"
+            to="create"
             className="text-white transition-colors duration-200 hover:text-gray-300"
           >
             Write a Blog Post
