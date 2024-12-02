@@ -115,7 +115,7 @@ function PostDetails({ posts, onDelete, onUpdate }) {
               </button>
             </div>
           </div>
-          <article className="whitespace-pre-line font-verdana text-slate-950">
+          <article className="whitespace-pre-line break-words font-verdana text-slate-950">
             {body}
           </article>
           <hr className="mx-auto my-8 w-3/4" />
