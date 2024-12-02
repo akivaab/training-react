@@ -7,7 +7,7 @@ import Comments from "./Comments";
 function PostDetails({ posts, onDelete, onUpdate }) {
   const navigate = useNavigate();
   const { id } = useParams();
-  const post = posts.find((p) => p.date === Number(id));
+  const post = posts.find((p) => p.date.toString() === id);
 
   if (!post) {
     return <Error />;
@@ -21,10 +21,8 @@ function PostDetails({ posts, onDelete, onUpdate }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (title && author && body) {
-      post.title = title;
-      post.author = author;
-      post.body = body;
-      onUpdate(post);
+      const updatedPost = { ...post, title: title, author: author, body: body };
+      onUpdate(updatedPost);
       setIsUpdating(false);
     }
   };
@@ -92,7 +90,7 @@ function PostDetails({ posts, onDelete, onUpdate }) {
         <>
           <div className="mx-2 flex items-start justify-between">
             <div className="mb-3 min-w-[35%] flex-1 p-1">
-              <h2 className="font-tahoma truncate pb-1 text-2xl font-medium text-green-700 md:whitespace-normal md:break-words">
+              <h2 className="truncate pb-1 font-tahoma text-2xl font-medium text-green-700 md:whitespace-normal md:break-words">
                 {title}
               </h2>
               <h3 className="truncate text-lg font-normal text-slate-700 md:whitespace-normal md:break-words">
@@ -104,22 +102,22 @@ function PostDetails({ posts, onDelete, onUpdate }) {
             </div>
             <div className="my-auto ml-1 space-x-3">
               <button
-                className="w-24 rounded-2xl bg-green-800 p-3 text-white shadow transition-all duration-100 hover:ring-2 hover:ring-emerald-600 active:bg-green-700"
+                className="w-28 rounded-2xl bg-green-800 p-3 text-white shadow transition-all duration-100 hover:ring-2 hover:ring-emerald-600 active:bg-green-700"
                 onClick={() => setIsUpdating(true)}
               >
-                Edit
+                Edit Post
               </button>
               <button
-                className="w-24 rounded-2xl bg-red-800 p-3 text-white shadow transition-all duration-100 hover:ring-2 hover:ring-red-900 active:bg-red-700"
+                className="w-28 rounded-2xl bg-red-800 p-3 text-white shadow transition-all duration-100 hover:ring-2 hover:ring-red-900 active:bg-red-700"
                 onClick={handleDelete}
               >
-                Delete
+                Delete Post
               </button>
             </div>
           </div>
-          <p className="font-verdana whitespace-pre-line text-slate-950">
+          <article className="whitespace-pre-line font-verdana text-slate-950">
             {body}
-          </p>
+          </article>
           <hr className="mx-auto my-8 w-3/4" />
           <Comments post={post} onUpdate={onUpdate} />
         </>

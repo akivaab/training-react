@@ -16,7 +16,7 @@ function Header() {
             to="/create"
             className="text-white transition-colors duration-200 hover:text-gray-300"
           >
-            Write Blog
+            Write a Blog Post
           </Link>
         </nav>
       </div>

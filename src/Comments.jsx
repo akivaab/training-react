@@ -9,12 +9,16 @@ function Comments({ post, onUpdate }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (commentAuthor && commentBody) {
-      post.comments.push({
-        author: commentAuthor,
-        date: Date.now(),
-        body: commentBody
-      });
-      onUpdate(post);
+      const updatedComments = [
+        ...post.comments,
+        {
+          author: commentAuthor,
+          date: Date.now(),
+          body: commentBody
+        }
+      ];
+      const updatedPost = { ...post, comments: updatedComments };
+      onUpdate(updatedPost);
       setIsCommenting(false);
     }
   };
@@ -69,7 +73,7 @@ function Comments({ post, onUpdate }) {
               </span>
               wrote at {format(comment.date, "MMM dd, yyyy")}:
             </h3>
-            <p className="font-verdana whitespace-pre-line break-words text-base font-light text-slate-900">
+            <p className="whitespace-pre-line break-words font-verdana text-base font-light text-slate-900">
               {comment.body}
             </p>
           </div>
