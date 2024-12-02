@@ -25,10 +25,28 @@ Click on the provided link to open the project on a port of your local machine.
 
 ## Overview
 
+The home page features a list of all the articles currently posted on the blog. This page can be accessed at any time by clicking "Home" towards the top-right of the screen in the header.
+
+![Screenshot of the blog home page featuring a list of all posts.](img/post-list.png)
+
 ### Create
+
+A new post can be written for the blog by clicking "Write a Blog Post" at the top-right of the screen in the header. This will bring you to a page where you can write and submit the post.
+
+![Screenshot of the page where you can add posts to the blog.](img/create-post.png)
 
 ### Read
 
+To read a post, simply click on a post from the list on the home screen.
+
+![Screenshot of the page where you can read a post](img/post-details-read.png)
+
 ### Update
 
+To update a post, click the button labeled "Edit Post" [(see above screenshot)](#read) to switch from reading mode to editing mode. When you finish editing, click "Save Changes".
+
+![Screenshot of the page where you can update a post](img/post-details-edit.png)
+
 ### Delete
+
+To delete a post, click the button labeled "Delete Post" [(see above screenshot)](#read).
