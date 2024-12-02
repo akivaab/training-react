@@ -20,6 +20,8 @@ function Comments({ post, onUpdate }) {
       const updatedPost = { ...post, comments: updatedComments };
       onUpdate(updatedPost);
       setIsCommenting(false);
+      setCommentAuthor("");
+      setCommentBody("");
     }
   };
 
